@@ -1,0 +1,38 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# System files
+.DS_Store
+
+# Logs
+*.log
+logs/
+your_experiment/logs/
+
+# Data and outputs
+data/
+results/
+your_experiment/data/
+your_experiment/results/
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+*.bin
+
+# Numpy / large generated files
+*.npy
+*.npz
+
+# Environment files
+.env
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
