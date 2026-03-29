@@ -1,26 +1,23 @@
 # LagMemo: Open-source Extension for 3D Reconstruction and Language Injection
 
-This repository provides the open-source extension of **LagMemo**, focusing on the previously missing components for:
+This repository provides the open-source extension of **LagMemo**, focusing on the previously missing semantic mapping section, including:
 
 - **3D Reconstruction**
 - **Language Injection**
-- **Semantic Query**
 
-The codebase is organized as an independent extension around the existing LagMemo pipeline, with minimal modification to the original released repository.
+The codebase is organized as an independent prelude extension around the existing LagMemo pipeline, and does not include the released part.
 
 ---
 
 ## Overview
 
-The overall pipeline is structured into three stages:
+The overall pipeline is structured into two stages:
 
 1. **3D Reconstruction**  
    Build a 3D Gaussian Splatting (3DGS) scene representation from RGB-D observations.
 
 2. **Language Injection**  
    Extract 2D semantic features from RGB images, then project and fuse them into the 3D scene representation.
-
-3. **Visual Navigation / Semantic Query**  
    Use the semantic-enhanced scene representation for downstream localization and query.
 
 ---
@@ -50,7 +47,7 @@ The overall pipeline is structured into three stages:
 
 ## Environment Setup
 
-This project uses **three environments in total**, corresponding to different stages of the pipeline.
+This part uses **two environments in total**, corresponding to different stages of the pipeline.
 
 ### 1. 3D Reconstruction Environment
 
@@ -63,7 +60,7 @@ This project uses **three environments in total**, corresponding to different st
 #### Installation
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/pieceHk/lagmemo_mapping
 
 cd 3DReconstruction
 conda create -n 3DReconstruction python=3.10
@@ -78,16 +75,10 @@ pip install -r requirements.txt
 
 ### 2. Language Injection Environment
 
-This stage contains two submodules:
-
-- `OpenGaussian`
-- `LangSplat`
 
 #### Installation
 
 ```bash
-git clone <your-repo-url>
-
 cd LanguageInjection/OpenGaussian
 conda env create --file environment.yml
 conda activate LanguageInjection
@@ -101,8 +92,6 @@ conda install -c conda-forge -y "python=3.7" "pytorch=1.12.*" "open-clip-torch<3
 pip install "ftfy" "regex" "tqdm" "huggingface_hub<0.20" "safetensors<0.4" "timm<0.9"
 ```
 
-You also need to install `segment-anything-langsplat` and download the SAM checkpoints from its official repository into `ckpts/`.
-
 ---
 
 ## Quick Start
@@ -113,13 +102,13 @@ You also need to install `segment-anything-langsplat` and download the SAM check
 conda activate 3DReconstruction
 ```
 
-### Step 2. Generate the 3DGS model
+### Step 2. (3DReconstruction) Generate the 3DGS model
 
 ```bash
 python your_experiment/scripts/splatam_i.py your_experiment/configs/splatam_new.py
 ```
 
-### Step 3. Export the PLY file
+### Step 3. (3DReconstruction) Export the PLY file
 
 ```bash
 python your_experiment/scripts/export_ply.py your_experiment/configs/splatam_new.py
@@ -127,13 +116,13 @@ python your_experiment/scripts/export_ply.py your_experiment/configs/splatam_new
 
 ---
 
-### Step 4. Activate the Language Injection environment
+### Step 4. (LanguageInjection) Activate the Language Injection environment
 
 ```bash
 conda activate LanguageInjection
 ```
 
-### Step 5. Perform 2D-level semantic segmentation and language-feature alignment
+### Step 5. (LanguageInjection) Perform 2D-level semantic segmentation and language-feature alignment
 
 ```bash
 cd LangSplat
@@ -141,14 +130,14 @@ bash ../../your_experiment/scripts/process.sh
 cd ..
 ```
 
-### Step 6. Generate semantic modeling results
+### Step 6. (LanguageInjection) Generate semantic modeling results
 
 ```bash
 cd OpenGaussian
 bash ../../your_experiment/scripts/lagmemo.sh
 ```
 
-### Step 7. Run semantic query / localization
+### Step 7. (LanguageInjection) Run semantic query / localization
 
 ```bash
 python query_lh/localize_new.py
@@ -160,20 +149,20 @@ python query_lh/localize_new.py
 
 ### 1. GPU memory usage is too high
 
-If GPU memory usage is too high, set:
+If GPU memory usage is too high, set in your_experiment/configs/splatam_new:
 
 ```python
 gt_pose = True
 ```
 
-Otherwise, memory consumption may become very large.
+The problem may be lie in either 3D Reconstruction or 2D-to-3D lifting.
 
 ### 2. Dataset loading errors
 
 Check the dataset path configuration in:
 
 ```bash
-./exp/configs/splatam_new.py
+your_experiment/configs/splatam_new.py
 ```
 
 Path misconfiguration is a common source of errors.
@@ -191,7 +180,7 @@ Possible solutions:
 
 - This repository is designed as an **independent extension** to the existing LagMemo release.
 - The added code is relatively self-contained and does **not heavily modify** the original open-source codebase.
-- In practice, only minimal integration changes may be required, such as README updates or script-path adjustments.
+- In practice, only minimal integration changes be required.
 
 ---
 
@@ -199,11 +188,10 @@ Possible solutions:
 
 - [x] Reproduce the released part of the pipeline
 - [x] Merge code into GitHub
-- [ ] Clean up scripts and configs for public release
-- [ ] Add dataset preparation instructions
-- [ ] Add checkpoints / model dependency instructions
+- [x] Clean up scripts and configs for public release
+- [x] Add checkpoints / model dependency instructions
 - [ ] Add example outputs and visualization results
-- [ ] Add citation and license information
+- [x] Add citation and license information
 
 ---
 
@@ -235,7 +223,7 @@ This project is released under the [MIT License](LICENSE) unless otherwise speci
 This project builds upon the following components:
 
 - LagMemo
-- SplaTAM / 3DGS-related reconstruction tools
+- SplaTAM
 - LangSplat
 - OpenGaussian
 - Segment Anything
