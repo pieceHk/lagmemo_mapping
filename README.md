@@ -1,6 +1,6 @@
 # LagMemo: Open-source Extension for 3D Reconstruction and Language Injection
 
-This repository provides the open-source extension of **LagMemo**, focusing on the previously missing semantic mapping section, including:
+This repository provides the open-source extension of **LagMemo**[https://github.com/weekgoodday/LagMemo], focusing on the previously missing semantic mapping section, including:
 
 - **3D Reconstruction**
 - **Language Injection**
