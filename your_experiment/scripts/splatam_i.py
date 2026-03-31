@@ -12,7 +12,7 @@ _PROJECT_ROOT = os.path.dirname(_BASE_DIR)  # This should be the 3DGS directory
 
 sys.path.insert(0, _BASE_DIR)
 
-SPLATAM_DIR = os.path.join(_PROJECT_ROOT, "SplaTAM")
+SPLATAM_DIR = os.path.join(_PROJECT_ROOT, "3DReconstruction")
 sys.path.insert(0, SPLATAM_DIR)
 
 print("System Paths:")

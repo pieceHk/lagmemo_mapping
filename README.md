@@ -46,10 +46,11 @@ The overall pipeline is structured into two stages:
 ---
 ## Dataset Preparation
 
-It is recommended to use the **GOAT-core** dataset developed by the LagMemo team. **GOAT-core**: A Multi-scene, Multi-modal Dataset for Downstream Target Localization Tasks.
-We are completely open-source and available for everyone to use for free. You can download from[http://www.poss.pku.edu.cn/Goat-core.html] and place it in the path lagmemo_mapping/your_experiment/data .
+**GOAT-core: A Multi-scene, Multi-modal Dataset for Downstream Target Localization Tasks.**
 
+It is recommended to use the **GOAT-core** dataset developed by the LagMemo team. We are completely open-source and available for everyone to use for free. You can download from[http://www.poss.pku.edu.cn/Goat-core.html] and place it in the path **lagmemo_mapping/your_experiment/data/**
 
+We also placed the .yaml file containing the camera intrinsic parameters in the path **lagmemo_mapping/your_experiment/configs/data/lagmemo640480.yaml**
 ---
 ## Environment Setup
 
@@ -74,7 +75,12 @@ conda activate 3DReconstruction
 
 conda install -c "nvidia/label/cuda-11.6.0" cuda-toolkit
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
-pip install -r requirements.txt
+pip install -r requirements.txt --no-build-isolation
+```
+
+**Tips.**The diff_gaussian_rasterization package of 3DReconstruction encountered an error during operation. We suggest installing torch and then directly using 
+```bash
+pip install git+https://github.com/JonathonLuiten/diff-gaussian-rasterization-w-depth.git@cb65e4b86bc3bd8ed42174b72a62e8d3a3a71110 --no-build-isolation --no-cache-dir
 ```
 
 ---
