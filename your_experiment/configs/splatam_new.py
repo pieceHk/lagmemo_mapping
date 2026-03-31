@@ -19,8 +19,8 @@ group_name = "lagmemo"
 run_name = f"{seed}"
 
 config = dict(
-    workdir=f"khy_exp_0313/results/splatam_exp_{seed}_{scene_name}",  # 实验结果的保存目录khy/results/splatam_exp_1770102371
-    logdir=f"khy_exp_0313/logs/splatam_exp_{seed}_{scene_name}",  # 日志保存目录
+    workdir=f"your_experiment/results/splatam_exp_{seed}_{scene_name}",  # 实验结果的保存目录khy/results/splatam_exp_1770102371
+    logdir=f"your_experiment/logs/splatam_exp_{seed}_{scene_name}",  # 日志保存目录
     run_name=run_name,
     seed=seed,
     primary_device=primary_device,
@@ -49,8 +49,8 @@ config = dict(
         eval_save_qual=True,
     ),
     data=dict(
-        basedir="khy_exp_0313/data/Goat-core/dataset",  # 输入数据的存放目录
-        gradslam_data_cfg="khy_exp_0313/configs/data/lagmemo640480.yaml",  # gradslam data config file
+        basedir="your_experiment/data/Goat-core/dataset",  # 输入数据的存放目录
+        gradslam_data_cfg="your_experiment/configs/data/lagmemo640480.yaml",  # gradslam data config file
         sequence=scene_name,
         desired_image_height_init=480,
         desired_image_width_init=640,

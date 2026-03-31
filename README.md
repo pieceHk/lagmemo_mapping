@@ -44,7 +44,13 @@ The overall pipeline is structured into two stages:
 ```
 
 ---
+## Dataset Preparation
 
+It is recommended to use the **GOAT-core** dataset developed by the LagMemo team. **GOAT-core**: A Multi-scene, Multi-modal Dataset for Downstream Target Localization Tasks.
+We are completely open-source and available for everyone to use for free. You can download from[http://www.poss.pku.edu.cn/Goat-core.html] and place it in the path lagmemo_mapping/your_experiment/data .
+
+
+---
 ## Environment Setup
 
 This part uses **two environments in total**, corresponding to different stages of the pipeline.
