@@ -1,4 +1,4 @@
-# LagMemo: Open-source Extension for 3D Reconstruction and Language Injection
+# LagMemo-mapping: Open-source Extension for 3D Reconstruction and Language Injection
 
 This repository provides the open-source extension of **LagMemo**[https://github.com/weekgoodday/LagMemo], focusing on the previously missing semantic mapping section, including:
 
@@ -20,6 +20,7 @@ The overall pipeline is structured into two stages:
    Extract 2D semantic features from RGB images, then project and fuse them into the 3D scene representation.
    Use the semantic-enhanced scene representation for downstream localization and query.
 
+![示意图](./your_experiment/configs/data/LagMemo-mapping.png)
 ---
 
 ## Repository Structure
@@ -125,6 +126,9 @@ python your_experiment/scripts/splatam_i.py your_experiment/configs/splatam_new.
 ```bash
 python your_experiment/scripts/export_ply.py your_experiment/configs/splatam_new.py
 ```
+You can try visualizing the .ply file.
+
+![示意图](./your_experiment/configs/data/visualization_of_3dgs.png)
 
 ---
 
@@ -141,6 +145,9 @@ cd LangSplat
 bash ../../your_experiment/scripts/process.sh
 cd ..
 ```
+You can try visualizing the results of SAM. It's a frame of 5cd in GOAT-core datasets.
+
+![示意图](./your_experiment/configs/data/visualization_of_SAM.png)
 
 ### Step 6. (LanguageInjection) Generate semantic modeling results
 

@@ -13,9 +13,7 @@ logs/
 your_experiment/logs/
 
 # Data and outputs
-data/
 results/
-your_experiment/data/
 your_experiment/results/
 
 # Model checkpoints
