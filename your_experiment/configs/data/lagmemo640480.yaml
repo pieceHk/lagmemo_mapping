@@ -1,0 +1,13 @@
+dataset_name: 'lagmemo'
+camera_params:
+  image_height: 480
+  image_width: 640
+  fx: 388.19
+  fy: 388.19
+  cx: 319.5
+  cy: 239.5
+
+
+  #468.91601086 : 360*640
+  #355.39596558 : 84
+  #320 : 90
