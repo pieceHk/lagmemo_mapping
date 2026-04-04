@@ -50,7 +50,7 @@ config = dict(
     ),
     data=dict(
         basedir="your_experiment/data/Goat-core/dataset",  # 输入数据的存放目录
-        gradslam_data_cfg="your_experiment/configs/data/lagmemo640480.yaml",  # gradslam data config file
+        gradslam_data_cfg="your_experiment/data/lagmemo640480.yaml",  # gradslam data config file
         sequence=scene_name,
         desired_image_height_init=480,
         desired_image_width_init=640,

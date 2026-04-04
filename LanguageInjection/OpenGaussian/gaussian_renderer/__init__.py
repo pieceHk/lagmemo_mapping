@@ -17,7 +17,10 @@ from scene.gaussian_model import GaussianModel
 from utils.sh_utils import eval_sh
 from utils.opengs_utlis import *
 # from sklearn.neighbors import NearestNeighbors
-import pytorch3d.ops
+try:
+    import pytorch3d.ops
+except Exception:
+    pytorch3d = None
 
 def render(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.Tensor, iteration,
             scaling_modifier = 1.0, override_color = None, visible_mask = None, mask_num=0,

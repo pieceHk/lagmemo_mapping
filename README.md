@@ -33,6 +33,10 @@ The overall pipeline is structured into two stages:
 ├── LagMemo/
 └── your_experiment/
     ├── data/
+    │   ├── lagmemo640480.yaml       # camera intrinsic parameters
+    │   └── Goat-core/               # downloaded dataset
+    │       ├── dataset/
+    │       └── groundtruth/
     ├── logs/
     ├── scripts/
     │   ├── splatam_i.py
@@ -49,8 +53,9 @@ The overall pipeline is structured into two stages:
 
 **GOAT-core: A Multi-scene, Multi-modal Dataset for Downstream Target Localization Tasks.**
 
-It is recommended to use the **GOAT-core** dataset developed by the LagMemo team. We are completely open-source and available for everyone to use for free. You can download it from **GOAT-core**(http://www.poss.pku.edu.cn/Goat-core.html) and place it in `lagmemo_mapping/your_experiment/data/`.
-We also placed the `.yaml` file containing the camera intrinsic parameters at `lagmemo_mapping/your_experiment/configs/data/lagmemo640480.yaml`.
+It is recommended to use the **GOAT-core** dataset developed by the LagMemo team. We are completely open-source and available for everyone to use for free. You can download it from **GOAT-core**(http://www.poss.pku.edu.cn/Goat-core.html) and place it under `your_experiment/data/Goat-core/`, which should contain `dataset/` and `groundtruth/` subdirectories.
+
+The `.yaml` file containing the camera intrinsic parameters (`lagmemo640480.yaml`) is provided in this repository and should be placed at `your_experiment/data/lagmemo640480.yaml`.
 
 ---
 ## Environment Setup
